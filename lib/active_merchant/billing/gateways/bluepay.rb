@@ -315,6 +315,7 @@ module ActiveMerchant #:nodoc:
         puts $result == APPROVED
         puts $result
         puts $result.class
+        puts "what in the fuck is going on?"
         puts ($result == APPROVED and !($trans_message =~ /DUPLICATE/))
         puts !$rebill_result.blank?
         puts (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
@@ -396,6 +397,9 @@ module ActiveMerchant #:nodoc:
           end
 	  $result = response['Result']
 	  $rebill_result = response['rebill_id']
+          puts $rebill_result.class()
+          puts response['rebill_id'][0].to_s
+          puts response['rebill_id'][0].to_s
 	  $trans_message = response['MESSAGE']
 	  return response
         end
