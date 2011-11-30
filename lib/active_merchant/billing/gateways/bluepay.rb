@@ -317,14 +317,15 @@ module ActiveMerchant #:nodoc:
         puts $result == APPROVED
         puts "==="
         returned_result = (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
-          $rebill_result != '') 
+          $rebill_result != '')
         puts "Pre-andf:"
         puts $result == APPROVED and !($trans_message =~ /DUPLICATE/)
         puts "Without and:"
         puts $rebull_result != ''
         puts "Everything:"
         puts returned_result
-        return returned_result
+        (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
+          $rebill_result != '')
       end
 
       def error?()
@@ -399,7 +400,6 @@ module ActiveMerchant #:nodoc:
             response     = CGI.parse(body)
           end
 	  $result = response['Result'].to_s()
-          puts $result
 	  $rebill_result = response['rebill_id'].to_s()
 	  $trans_message = response['MESSAGE'].to_s()
 	  return response
