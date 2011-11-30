@@ -320,8 +320,8 @@ module ActiveMerchant #:nodoc:
         puts $rebill_result.empty?
         puts (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
           $rebill_result != '')
-        (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) and 
-          $rebill_result.empty?)
+        (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
+          $rebill_result != '')
       end
 
       def error?()
@@ -395,12 +395,11 @@ module ActiveMerchant #:nodoc:
             body         = response.body
             response     = CGI.parse(body)
           end
-	  $result = response['Result'].to_s()
-          puts response['Result']
-          puts $result
-          puts $result[0]
+	  $result = response['Result']
 	  $rebill_result = response['rebill_id'].to_s()
+          puts $rebill_result
 	  $trans_message = response['MESSAGE'].to_s()
+          puts $trans_message
 	  return response
         end
       end
