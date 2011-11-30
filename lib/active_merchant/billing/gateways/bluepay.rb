@@ -396,6 +396,7 @@ module ActiveMerchant #:nodoc:
             response     = CGI.parse(body)
           end
 	  $result = response['Result'].to_s()
+          puts response['Result']
           puts $result
           puts $result[0]
 	  $rebill_result = response['rebill_id'].to_s()
