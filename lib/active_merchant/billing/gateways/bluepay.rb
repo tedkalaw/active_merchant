@@ -312,14 +312,6 @@ module ActiveMerchant #:nodoc:
       end
 
       def success?()
-        puts $result
-        puts $result == APPROVED
-        puts ($result == APPROVED and !($trans_message =~ /DUPLICATE/))
-        puts $rebill_result != ''
-        puts $rebill_result
-        puts $rebill_result.empty?
-        puts (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
-          $rebill_result != '')
         (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
           $rebill_result != '')
       end
@@ -396,10 +388,8 @@ module ActiveMerchant #:nodoc:
             response     = CGI.parse(body)
           end
 	  $result = response['Result']
-	  $rebill_result = response['rebill_id'].to_s()
-          puts $rebill_result
-	  $trans_message = response['MESSAGE'].to_s()
-          puts $trans_message
+	  $rebill_result = response['rebill_id']
+	  $trans_message = response['MESSAGE']
 	  return response
         end
       end
