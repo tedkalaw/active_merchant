@@ -396,7 +396,8 @@ module ActiveMerchant #:nodoc:
 	  $result = response['Result']
 	  $rebill_result = response['rebill_id']
           puts $rebill_result == ""
-          puts $rebill.result.blank?
+          puts $rebill_result.blank?
+          puts $rebill_result.empty?
 	  $trans_message = response['MESSAGE']
 	  return response
         end
