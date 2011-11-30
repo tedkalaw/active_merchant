@@ -317,11 +317,10 @@ module ActiveMerchant #:nodoc:
         puts $result.class
         puts "what in the fuck is going on?"
         puts ($result == APPROVED and !($trans_message =~ /DUPLICATE/))
-        puts !$rebill_result.blank?
         puts (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
           !$rebill_result.blank?)
         (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
-          $rebill_result != '')
+          !$rebill_result.blank?)
       end
 
       def error?()
