@@ -397,7 +397,7 @@ module ActiveMerchant #:nodoc:
           end
 	  $result = response['Result'].first
 	  $rebill_result = response['rebill_id'].first
-	  $trans_message = response['MESSAGE'].result
+	  $trans_message = response['MESSAGE'].first
 	  return response
         end
       end
