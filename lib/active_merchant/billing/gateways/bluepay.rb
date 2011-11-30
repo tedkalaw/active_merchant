@@ -312,19 +312,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def success?()
-        puts "==="
-        puts $result
-        puts $result == APPROVED
-        puts "==="
-        returned_result = (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
-          $rebill_result != '')
-        puts "Pre-andf:"
-        puts $result == APPROVED and !($trans_message =~ /DUPLICATE/)
-        puts "Without and:"
-        puts $rebull_result != ''
-        puts "Everything:"
-        puts returned_result
-        (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
+        (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) and 
           $rebill_result != '')
       end
 
