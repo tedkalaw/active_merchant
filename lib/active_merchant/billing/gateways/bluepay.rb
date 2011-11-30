@@ -312,8 +312,11 @@ module ActiveMerchant #:nodoc:
       end
 
       def success?()
+        puts "Approved?"
         puts $result == APPROVED
+        puts "What is rebill_result?"
         puts $rebill_result
+        puts "Is it equal to empty string?"
         puts $rebill_result != ''
         (($result == APPROVED and !($trans_message =~ /DUPLICATE/)) or 
           $rebill_result != '')
@@ -392,6 +395,7 @@ module ActiveMerchant #:nodoc:
           end
 	  $result = response['Result']
 	  $rebill_result = response['rebill_id']
+          puts $rebill_result == ""
 	  $trans_message = response['MESSAGE']
 	  return response
         end
