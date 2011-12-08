@@ -438,7 +438,7 @@ module ActiveMerchant #:nodoc:
 
       def calc_rebill_tps(post)
         digest = Digest::MD5.hexdigest($options[:secret_key] + 
-        $options[:account_id] + post[:TRANS_TYPE] + post[:REBILL_ID])
+        $options[:account_id].to_s() + post[:TRANS_TYPE] + post[:REBILL_ID])
         return digest
       end
 
