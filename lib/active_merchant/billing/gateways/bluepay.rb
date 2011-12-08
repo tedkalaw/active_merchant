@@ -427,7 +427,7 @@ module ActiveMerchant #:nodoc:
 
       def calc_tps(amount, post)
          digest = Digest::MD5.hexdigest($options[:secret_key] + 
-         $options[:account_id] + post[:TRANSACTION_TYPE] + 
+         $options[:account_id].to_s() + post[:TRANSACTION_TYPE] + 
          amount.to_s() + post[:REBILLING].to_s() + 
          post[:REB_FIRST_DATE].to_s() + post[:REB_EXPR].to_s() + 
          post[:REB_CYCLES].to_s() + post[:REB_AMOUNT].to_s() + 
