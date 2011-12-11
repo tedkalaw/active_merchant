@@ -370,9 +370,9 @@ module ActiveMerchant #:nodoc:
 	                        'n/a' : address[:state]
           post[:ZIPCODE]      = address[:zip]
           post[:COUNTRY]      = address[:country]
-          logger.debug("===")
-          logger.debug(post)
-          logger.debug("===")
+          puts("===")
+          puts(post)
+          puts("===")
         end
       end
 
