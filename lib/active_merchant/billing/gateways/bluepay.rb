@@ -81,10 +81,6 @@ module ActiveMerchant #:nodoc:
       # * or a token. The token is called the Master ID. This is a unique transaction ID returned from a previous transaction. This token associates all the stored information for a previous transaction.
       # * <tt>options</tt> -- A hash of optional parameters.,
       def purchase(money, payment_object, options = {})
-        puts("This is a story all about how")
-        puts("My life got flipped turned upside down")
-        puts("And I'd like to take a minute so just sit right there")
-        puts("I'll tell you how I became the prince of a town called Bel-Air")
 	post = {}
 	if payment_object != nil && payment_object.class() != String
 	 payment_object.class() == ActiveMerchant::Billing::Check ? 
@@ -370,9 +366,6 @@ module ActiveMerchant #:nodoc:
 	                        'n/a' : address[:state]
           post[:ZIPCODE]      = address[:zip]
           post[:COUNTRY]      = address[:country]
-          puts("===")
-          puts(post)
-          puts("===")
         end
       end
 
